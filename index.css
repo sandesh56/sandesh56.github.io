@@ -1,0 +1,27 @@
+.background{
+    height:15rem;
+    position: relative;
+    background-image: url("public/image/background.jpg");
+}
+
+.profile{
+    position: absolute;
+    left: 3rem;
+    top:4rem;
+    height:200px;
+    width:200px;
+    border-radius: 100px;
+}
+
+.details{
+    padding: 1rem;
+    margin:0 0 0 2rem;
+}
+footer{
+    width:100%;
+    padding:2rem;
+    height:8rem;
+    position: absolute;
+    background-color: rgb(190, 233, 218);
+    bottom:0;
+}
