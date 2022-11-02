@@ -54,15 +54,19 @@ p>img{
    column-count: 2;
    margin-bottom: 8px;
 }
+
+.comment-div{
+    width: 84%;
+    margin:2% 0 2% 0;
+    overflow: hidden;
+}
 .comment-box{
     background-color: #E8DC9B;
     border:2px solid gray;
     border-radius:10px;
     display:inline-block;
-    width:100%;
-   /* overflow-wrap: break-word; */
     padding:3px;
-
+    width: 90%;
 }
 .detail-container{
   background-color:#A2B964;

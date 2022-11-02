@@ -16,12 +16,13 @@
 .details{
     padding: 1rem;
     margin:0 0 0 2rem;
+    min-height: 50%;
 }
 footer{
     width:100%;
     padding:2rem;
     height:6rem;
-    position: absolute;
+    position: relative;
     background-color: rgb(190, 233, 218);
     bottom:0;
 }

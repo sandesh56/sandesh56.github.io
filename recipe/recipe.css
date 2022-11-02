@@ -46,6 +46,7 @@ h2{
 .copyright{
     float:left;
     text-align: right;
+    font-family: monospace;
 
 }
 .inner{
