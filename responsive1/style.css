@@ -2,15 +2,14 @@
     display: grid;
     height:100vh;
     width:100%;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows:100px 80px 1fr 1fr 100px;
     grid-template-areas:
-        "header"
-        "navbar"
-        "content1"
-        "content2"
-        "content3"
-        "footer"
+        "header header"
+        "navbar navbar"
+        "content1 content3"
+        "content2 content2"
+        "footer footer"
 }
 
 @media (min-width: 600px) {
