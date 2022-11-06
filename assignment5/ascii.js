@@ -1,66 +1,71 @@
-window.onload = () => eventhandler();
-/**
- * This are the values selected by the font size slector.
- */
-var sizeObject = {
-  Tiny: "7pt",
-  Small: "10pt",
-  Medium: "12pt",
-  Large: "16pt",
-  ExtraLarge: "24pt",
-  XXL: "32pt",
-};
-/**
- * variable animation timing.
- */
-var animationSpeed = 25;
-var eventhandler = () => {
-  var start = document.getElementById("start");
-  var stop = document.getElementById("stop");
-  var textArea = document.getElementById("text-area");
-  var animation = document.getElementById("animation");
-  var fontSize = document.getElementById("fontsize");
-  var turbo = document.getElementById("turbo");
+(() => {
+  window.onload = () => eventhandler();
 
+  ("use strict");
   /**
-   *
-   * @param {e}  event of the select.
+   * This are the values selected by the font size slector.
    */
-  animation.onclick = (e) => {
-    textArea.innerHTML = ANIMATIONS[e.target.value];
+  var sizeObject = {
+    Tiny: "7pt",
+    Small: "10pt",
+    Medium: "12pt",
+    Large: "16pt",
+    ExtraLarge: "24pt",
+    XXL: "32pt",
+  };
+
+  var eventhandler = () => {
+    document.getElementById("start").onclick = startButtonHandler;
+    document.getElementById("stop").onclick = stopButtonHandler;
+    document.getElementById("text-area").onchange = stopButtonHandler;
+    document.getElementById("animation").onchange = animationChangeHandler;
+    document.getElementById("fontsize").onchange = fontSizeSelectHnadler;
   };
 
   /**
    *
-   * @param {*} e e event of the select.
+   * handles the change event of the animation selector.
    */
-  fontSize.onclick = (e) => {
-    textArea.style.fontSize = sizeObject[e.target.value];
+
+  var animationChangeHandler = () => {
+    let targetElement = document.getElementById("text-area");
+    let e = document.getElementById("animation");
+    targetElement.innerHTML = ANIMATIONS[e.value];
   };
 
   /**
-   * Changes the speed of the animation.
+   *
+   * handles the change event of the font size selector.
    */
-
-  turbo.onclick = (e) => {
-    animationSpeed = e.target.checked ? 50 : 25;
+  var fontSizeSelectHnadler = () => {
+    let e = document.getElementById("fontsize");
+    document.getElementById("text-area").style.fontSize = sizeObject[e.value];
   };
 
-  start.addEventListener("click", () => {
-    stop.disabled = false;
-    start.disabled = true;
-    animation.disabled = true;
-    // setInterval(() => {
-    //   let position = 0;
-    //   if (position <= 960) {
-    //     psotion++;
-    //     textArea.style.marginLeft = position;
-    //   }
-    // }, animationSpeed);
-  });
-  stop.addEventListener("click", () => {
-    stop.disabled = true;
-    start.disabled = false;
-    animation.disabled = false;
-  });
-};
+  var position = 0;
+  var timer = null;
+
+  var startButtonHandler = () => {
+    document.getElementById("stop").disabled = false;
+    document.getElementById("start").disabled = true;
+    document.getElementById("animation").disabled = true;
+    let animationSpeed = document.getElementById("turbo").checked ? 50 : 250;
+    var frameArray = document
+      .getElementById("text-area")
+      .innerHTML.split("=====");
+    timer = setInterval(frameSelector, animationSpeed);
+    function frameSelector() {
+      position++;
+      if (position >= frameArray.length) position = 0;
+      document.getElementById("text-area").innerHTML = frameArray[position];
+    }
+  };
+
+  var stopButtonHandler = () => {
+    clearInterval(timer);
+    animationChangeHandler();
+    document.getElementById("stop").disabled = true;
+    document.getElementById("start").disabled = false;
+    document.getElementById("animation").disabled = false;
+  };
+})();
