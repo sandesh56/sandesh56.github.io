@@ -42,22 +42,51 @@
     document.getElementById("text-area").style.fontSize = sizeObject[e.value];
   };
 
+  /**
+   *
+   * handles the turbo checkbox.
+   */
+  var animationSpeed = 250;
+  var turboHandler = () => {
+    animationSpeed = document.getElementById("turbo").checked ? 50 : 250;
+  };
+
   var position = 0;
   var timer = null;
 
   var startButtonHandler = () => {
+    /**
+     *
+     * Disables and enables following buttons.
+     */
     document.getElementById("stop").disabled = false;
     document.getElementById("start").disabled = true;
     document.getElementById("animation").disabled = true;
-    let animationSpeed = document.getElementById("turbo").checked ? 50 : 250;
+
+    /**
+     * Generates the array of frames from text area value
+     */
     var frameArray = document
       .getElementById("text-area")
       .innerHTML.split("=====");
+
+    /**
+     *
+     * calls @frameSelector every animationSpedd interval.
+     */
     timer = setInterval(frameSelector, animationSpeed);
+
+    /**
+     * here in every call, interval is cleared and then then again set. This just for setting new interval with new time.
+     *
+     */
     function frameSelector() {
+      clearInterval(timer);
       position++;
       if (position >= frameArray.length) position = 0;
       document.getElementById("text-area").innerHTML = frameArray[position];
+      turboHandler();
+      timer = setInterval(frameSelector, animationSpeed);
     }
   };
 
