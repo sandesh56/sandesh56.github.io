@@ -1,5 +1,4 @@
-window.onload = eventhandler;
-
+window.onload = () => eventhandler();
 /**
  * This are the values selected by the font size slector.
  */
@@ -11,18 +10,13 @@ var sizeObject = {
   ExtraLarge: "24pt",
   XXL: "32pt",
 };
-
 /**
- * constant for animation timing.
+ * variable animation timing.
  */
-
 var animationSpeed = 25;
-console.log(animationSpeed);
 var eventhandler = () => {
   var start = document.getElementById("start");
   var stop = document.getElementById("stop");
-
-  start.addEventListener("click", listenStartButton);
   var textArea = document.getElementById("text-area");
   var animation = document.getElementById("animation");
   var fontSize = document.getElementById("fontsize");
@@ -52,15 +46,21 @@ var eventhandler = () => {
     animationSpeed = e.target.checked ? 50 : 25;
   };
 
-  start.addEventListener("click", listenStartButton);
-  stop.addEventListener("click", listenStopButton);
+  start.addEventListener("click", () => {
+    stop.disabled = false;
+    start.disabled = true;
+    animation.disabled = true;
+    // setInterval(() => {
+    //   let position = 0;
+    //   if (position <= 960) {
+    //     psotion++;
+    //     textArea.style.marginLeft = position;
+    //   }
+    // }, animationSpeed);
+  });
+  stop.addEventListener("click", () => {
+    stop.disabled = true;
+    start.disabled = false;
+    animation.disabled = false;
+  });
 };
-
-var listenStartButton = () => {
-  alert("triggered");
-};
-var listenStopButton = () => {
-  alert("stop clicked");
-};
-
-eventhandler();
