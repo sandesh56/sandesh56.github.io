@@ -82,9 +82,9 @@
      */
     function frameSelector() {
       clearInterval(timer);
-      position++;
       if (position >= frameArray.length) position = 0;
       document.getElementById("text-area").innerHTML = frameArray[position];
+      position++;
       turboHandler();
       timer = setInterval(frameSelector, animationSpeed);
     }
