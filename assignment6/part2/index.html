@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div id="container">
-      <div id="content">
-        <h2>New Product Form</h2>
-        <form id="form">
-            <label for="email">Email Address</label><br />
-            <input type="text" name="email" id="email" placeholder="Enter Email"/>
-            <span class="input-message">We'll never share your email with anyone else</span></br/>
-            <label for="password">Password</label><br />
-            <input type="text" name="password" id="password" placeholder="Password" pattern="[0-9]{" />
-            <input type="checkbox" name="check-me">Check me out</input><br />
-            <button id="submit" type="submit">Submit</button>
-         
-        </form>
-      </div>
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="container">
+    <div id="content">
+      <h2>New Product Form</h2>
+      <form id="form" action="https://sandesh56.github.io">
+        <div>
+          <label for="email">Email Address</label>
+        </div>
+        <input type="text" name="email" id="email" placeholder="Enter Email" />
+        <span class="input-message">We'll never share your email with anyone else</span>
+        <div>
+          <label for="password">Password</label>
+        </div>
+        <input type="text" name="password" id="password" placeholder="Password"
+          pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{10,}$" title="password must be at least 10 character and must include one number one lowercase and one uppercase letter" required />
+        <div>
+          <label for="password">Password</label>
+        </div>
+        <input type="text" name="url" id="url" placeholder="Enter url" pattern="https?://[a-zA-Z]{1,}\.[a-zA-Z]{3}$"
+          title="please enter vlaid url" required />
+        <input type="checkbox" name="check-me">Check me out</input><br />
+        <button id="submit" type="submit">Submit</button>
+
+      </form>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

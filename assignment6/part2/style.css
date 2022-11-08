@@ -1,43 +1,61 @@
 body {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 #container {
-    height: 100vh;
-    background-color: white;
-
+  height: 100vh;
+  background-color: white;
 }
 
 #content {
-    margin: 25px 5% 0 5%;
-    color: rgb(69, 69, 69)
+  margin: 25px 5% 0 5%;
+  color: rgb(69, 69, 69);
 }
 
 form {
-    align-items: center;
+  align-items: center;
 }
 
 input[type="text"] {
-    width: 100%;
-    border-radius: 10px;
-    border: 1px solid gray;
-    height: 3rem;
-    margin: 10px 0 5px 0;
-    padding-left: 10px;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid gray;
+  height: 3rem;
+  margin: 10px 0 5px 0;
+  padding-left: 10px;
 }
 
 .input-message {
-    color: gray;
+  color: gray;
+  margin-left: 10px;
 }
 
 input:focus {
-    border: 2px solid rgb(27, 105, 206);
+  border: 2px solid rgb(27, 105, 206);
 }
 
 button {
-    height: 3rem;
-    border-radius: 10px;
-    margin-top: 1rem;
-    width: 15%;
-    padding: 1rem;
+  height: 3rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+  width: 15%;
+  padding: 1rem;
+  background-color: rgb(39, 111, 205);
+  cursor: pointer;
+  color: white;
+  border: none;
+}
+
+button:hover {
+  background-color: rgb(17, 69, 138);
+}
+
+input[type=text]:focus{
+  outline:none !important;
+  border: 2px solid rgb(27, 105, 206) !important;
+  box-shadow:0 0 10px gray;
+}
+
+form>div{
+  margin-top:2rem;
 }
