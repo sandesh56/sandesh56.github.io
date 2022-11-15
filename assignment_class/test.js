@@ -1,21 +1,23 @@
-let acc = new Account(25);
+let savings = new SavingsAccount(30, 10);
 describe("deposit", function () {
+  let acc = new Account(25);
   it("throws exception when amount is negative", function () {
     assert.throws(() => acc.deposit(-5));
   });
+  acc.deposit(5000);
+  it("deposits if amount is greater than 0", function () {
+    assert.equal(acc.getBalance(), 5000);
+  });
 });
 
-// describe("deposit", function () {
-//   it("deposits if amount is greater than 0", function () {
-//     assert.
-//   });
-// });
-
 describe("withdraws money", () => {
-  it("withdraws money if amount is smaller than saving amount", () => {
-    assert.throws(() => acc.withdraw(20));
-  });
+  let acc = new Account(25);
+  acc.deposit(5000);
   it("throws error if amount is negative", () => {
     assert.throws(() => acc.withdraw(-10));
+  });
+  acc.withdraw(1000);
+  it("withdraws a money if amount is valid", () => {
+    assert.equal(acc.getBalance(), 4000);
   });
 });
