@@ -1,3 +1,4 @@
+"use strict";
 class CheckingAccount extends Account {
   constructor(number, overdraft) {
     super(number);

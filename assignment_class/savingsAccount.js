@@ -1,3 +1,4 @@
+"use strict";
 class SavingsAccount extends Account {
   constructor(number, interest) {
     super(number);
