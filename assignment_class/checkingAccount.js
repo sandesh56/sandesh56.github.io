@@ -31,7 +31,6 @@ class CheckingAccount extends Account {
         }`
       );
     }
-
     return `CheckingAccount ${this.getNumber()}: balance: ${this.getBalance()} overdraft limit: ${
       this.overdraft
     }`;

@@ -62,28 +62,42 @@ describe("Checking account test", () => {
  * Test case for Bank
  */
 describe("Test case for Bank", () => {
-    let bank = new Bank();
+  let bank = new Bank();
 
-   
-    it("should add three bank", () => {
-        bank.addAccount();
-        bank.addAccount();
-        assert.equal(bank.accounts.length, 2);
-    })
+  it("should add three bank", () => {
+    bank.addAccount();
+    bank.addAccount();
+    assert.equal(bank.accounts.length, 2);
+  });
 
-    it("should add a new saving account", () => {
-        bank.addSavingsAccount(9)
-        assert.equal(bank.accounts.length, 3);
-    })
+  it("should add a new saving account", () => {
+    bank.addSavingsAccount(9);
+    assert.equal(bank.accounts.length, 3);
+  });
 
-    it("should add a new checking account", () => {
-        bank.addCheckingAccount(5000)
-        assert.equal(bank.accounts.length, 4);
-    })
+  it("should add a new checking account", () => {
+    bank.addCheckingAccount(5000);
+    assert.equal(bank.accounts.length, 4);
+  });
 
-    it("should remove a account with given number", () => {
-        bank.closeAccount(1);
-        assert.equal(bank.accounts.length, 3);
-    })
-    console.log(bank.toString())
-})
+  it("should remove a account with given number", () => {
+    bank.closeAccount(1);
+    assert.equal(bank.accounts.length, 3);
+  });
+});
+
+/**
+ * Test case for Bank
+ */
+describe("End of Month", () => {
+  it("prints detail summay of each account", () => {
+    bank = new Bank();
+    bank.addAccount();
+    bank.accounts[0].deposit(1000);
+    bank.addSavingsAccount(10);
+    bank.accounts[1].deposit(1000);
+    bank.addCheckingAccount(100);
+    bank.accounts[2].deposit(1000);
+    console.log(bank.endOfMonth());
+  });
+});

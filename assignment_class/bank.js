@@ -31,6 +31,14 @@ class Bank {
   }
 
   accountReport() {
-    return this._accounts.reduce((item) => ``);
+    return this._accounts
+      .map((item) => item.toString())
+      .reduce((acc, item) => acc + "\n" + item, "");
+  }
+
+  endOfMonth() {
+    return this._accounts
+      .map((item) => item.endOfMonth())
+      .reduce((acc, item) => acc + "\n" + item, "");
   }
 }
