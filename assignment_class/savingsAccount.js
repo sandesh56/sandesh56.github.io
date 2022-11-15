@@ -13,10 +13,11 @@ class SavingsAccount extends Account {
   }
 
   addInterest() {
-    if (this.balance < 0) {
+    if (this.getBalance() <= 0) {
       throw new RangeError("you have zero balanace");
     }
-    this.balance += (this.balance * this.interest) / 100;
+    let newAmount = (this.getBalance() * this._interest) / 100;
+    this.deposit(newAmount);
   }
 
   toString() {
