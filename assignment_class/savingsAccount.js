@@ -23,4 +23,10 @@ class SavingsAccount extends Account {
   toString() {
     return `Account No: ${this.number}  balance: ${this.balance}`;
   }
+
+  endOfMonth() {
+    return `Interest added SavingsAccount ${this.getNumber()}: balance: ${
+      this.balance
+    } interest: ${this.interest}`;
+  }
 }

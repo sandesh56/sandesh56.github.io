@@ -57,3 +57,33 @@ describe("Checking account test", () => {
     assert.equal(checking.getBalance(), 7000);
   });
 });
+
+/**
+ * Test case for Bank
+ */
+describe("Test case for Bank", () => {
+    let bank = new Bank();
+
+   
+    it("should add three bank", () => {
+        bank.addAccount();
+        bank.addAccount();
+        assert.equal(bank.accounts.length, 2);
+    })
+
+    it("should add a new saving account", () => {
+        bank.addSavingsAccount(9)
+        assert.equal(bank.accounts.length, 3);
+    })
+
+    it("should add a new checking account", () => {
+        bank.addCheckingAccount(5000)
+        assert.equal(bank.accounts.length, 4);
+    })
+
+    it("should remove a account with given number", () => {
+        bank.closeAccount(1);
+        assert.equal(bank.accounts.length, 3);
+    })
+    console.log(bank.toString())
+})
