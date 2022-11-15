@@ -87,7 +87,7 @@ describe("Test case for Bank", () => {
 });
 
 /**
- * Test case for Bank
+ * Test case for Bank's endOfMonth method
  */
 describe("End of Month", () => {
   it("prints detail summay of each account", () => {
