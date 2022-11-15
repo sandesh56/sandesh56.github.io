@@ -1,3 +1,4 @@
+"use strict";
 class Bank {
   constructor() {
     this._accounts = [];
