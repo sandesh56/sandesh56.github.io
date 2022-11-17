@@ -9,6 +9,7 @@ readline.question("what id your name?", (name) => {
     if (age >= 16)
       console.log("You’re allowed to get a drivers license in Iowa");
     else console.log("Your're not allowed to drive in Iowa");
+    readline.history();
     readline.close();
   });
 });
