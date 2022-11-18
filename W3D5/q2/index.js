@@ -3,18 +3,24 @@ const path = require("path");
 const app = express();
 const bodyParser = require("body-parser");
 
+
+/**
+ * Url parser
+ */
+
+const urlParser = bodyParser.urlencoded({ extended: false });
 /**
  * Middleware
  */
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "templates"));
+app.use(urlParser);
 
 /**
  *
  * Routes
  */
 
-app.use(express.urlencoded());
 app.get("/", (req, res) => {
   res.render("userForm.ejs");
 });

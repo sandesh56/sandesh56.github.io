@@ -3,12 +3,19 @@ const path = require("path");
 const app = express();
 
 /**
+ * Url parser
+ */
+
+ const urlParser = bodyParser.urlencoded({ extended: false });
+
+/**
  * 
  * middleware
  */
 app.use("/css", express.static(path.join(__dirname, 'templates','style')));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "templates"));
+app.use(urlParser);
 
 
 /**
