@@ -18,7 +18,6 @@ app.set("views", path.join(__dirname, "templates"));
 app.use("/form", (req, res) => {
   const date = new Date();
   const hour = date.getHours();
-  console.log(__dirname+"templates/style")
   const cssLink = hour > 18 || hour < 6 ? "/css/night.css" : "/css/day.css";
   res.render("form.ejs", { csslink: cssLink });
 });
