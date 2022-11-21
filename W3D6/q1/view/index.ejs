@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Current time</title>
+    <% if(parseInt(time.substring(0,2))>18 || parseInt(time.substring(0,2))<6 ){ %>
+      <link rel="stylesheet" href="/css/night.css"/>
+     <%}
+     else {%>
+      <link rel="stylesheet" href="/css/day.css"/>
+      <%} %>
+  </head>
+  <body>
+    This page was loaded at <%= time %>
+  </body>
+</html>
