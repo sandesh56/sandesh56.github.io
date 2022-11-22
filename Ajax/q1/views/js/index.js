@@ -13,17 +13,20 @@ $(() => {
     }
 
     $("#add").submit(() => {
-        const data = {
-            fname: $("#fname").val(),
-            lname: $("#lname").val(),
-            food: $("#food").val(),
-        };
-        $.post({
-            url: "/add",
-            data: JSON.stringify(data),
-            contentType: "application/json; charset=utf-8"
-        }).done(addedSuccess)
-            .fail(noSuccess);
-        return false;
+      const data = {
+        fname: $("#fname").val(),
+        lname: $("#lname").val(),
+        time: $("#time").val(),
+
+        food: $("#food").val(),
+      };
+      $.post({
+        url: "/add",
+        data: JSON.stringify(data),
+        contentType: "application/json; charset=utf-8",
+      })
+        .done(addedSuccess)
+        .fail(noSuccess);
+      return false;
     });
 });
