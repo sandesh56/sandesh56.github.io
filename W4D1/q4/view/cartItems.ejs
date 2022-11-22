@@ -49,14 +49,7 @@
         <h3><%= item?.name %></h3>
         <p><%= item?.description %></p>
         <h5>Price: <%= item?.price %></h5>
-        <% if(item?.quantity){%>
-         <p>Quantity: <%=item?.quantity %></p>
-        <%
-
-        }else{%>
-          
-          <button class="button" type="submit" name="id" value= <%= item?.id %> >Add to cart</button>
-          <%} %>
+        <button class="button" type="submit" name="id" value=<%= item?.id %> >Add to cart</button>
       </form>
     </div>
 

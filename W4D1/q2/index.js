@@ -32,21 +32,21 @@ app.use("/form", (req, res) => {
   res.render("form.ejs", { csslink: cssLink });
 });
 
-var sess;
+
 app.post("/result", (req, res) => {
   let data = req.body;
   let name = data?.name;
   let age = data?.age;
   if (name && age) {
-    sess = req.session;
-    sess.name = name;
-    sess.age = age;
+    let session = req.session;
+    session.name = name;
+    session.age = age;
   }
   res.redirect(`/output`);
 });
 
 app.use("/output", (req, res) => {
-  sess = req.session;
+  let sess = req.session;
   res.send(`hello ${sess?.name} you are now ${sess?.age}`);
 });
 
