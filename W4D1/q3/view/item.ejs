@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+    </head>
+    <style>
+        #box{
+            padding:1rem;
+            border:1px solid gray;
+            border-radius: 10px;
+            overflow:hidden;
+            height:40%;
+            width:30%;
+        }
+        .container{
+            height:100vh;
+            padding:2rem;
+        }
+        #image{
+            height:50%;
+            width:50%;
+        }
+        
+    </style>
+    <header>
+        <%- include("header"); %>
+    </header>
+    <body>
+        <div class="container">
+            <div id="box">
+                <image id="image" src="<%= imageurl %>" alt="items" />
+                <h3><%= name %></h3>
+                <p><%= description %></p>
+                <h5>Price: <%= price %></h5>
+             </div>
+        </div>
+    </body>
+    <footer>
+        <%- include("footer"); %>
+    </footer>
+</html>
