@@ -3,6 +3,8 @@ const path = require("path");
 const app = express();
 const bodyParser = require("body-parser");
 const urlEncoded = bodyParser.urlencoded({ extended: false });
+
+const session = require("express-session");
 /**
  *
  * middleware
@@ -11,6 +13,14 @@ app.use("/css", express.static(path.join(__dirname, "templates", "style")));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "templates"));
 app.use(urlEncoded);
+app.use(
+  session({
+    secret: "imp",
+    saveUninitialized: true,
+    resave: true,
+    cookie: { maxAge: 20000 },
+  })
+);
 /**
  *
  * Routing and middleware
@@ -22,16 +32,21 @@ app.use("/form", (req, res) => {
   res.render("form.ejs", { csslink: cssLink });
 });
 
-app.use("/result", (req, res) => {
+var sess;
+app.post("/result", (req, res) => {
   let data = req.body;
-  res.redirect(`/output?name=${data?.name}&age=${data?.age}`);
+  let name = data?.name;
+  let age = data?.age;
+  if (name && age) {
+    sess = req.session;
+    sess.name = name;
+    sess.age = age;
+  }
+  res.redirect(`/output`);
 });
 
 app.use("/output", (req, res) => {
-  const name = req.query.name;
-  const age = req.query.age;
-
-  res.send(`hello ${name} you are now ${age}`);
+  res.send(`hello ${sess?.name} you are now ${sess?.age}`);
 });
 
-app.listen(8000);
+app.listen(3000);
