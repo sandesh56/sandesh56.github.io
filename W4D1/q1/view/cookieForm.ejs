@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cookie Form</title>
+  </head>
+  <style>
+    table{
+        width:50%;
+    }
+    table,
+    td {
+      border: 1px solid #333;
+    }
+
+    thead,
+    tfoot {
+      background-color: #333;
+      color: #fff;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+    form {
+      margin-bottom: 2rem;
+    }
+  </style>
+  <body>
+    <form method="post">
+      <label for="key">Key</label>
+      <input type="text" name="key" />
+      <label for="value">Value</label>
+      <input type="text" name="value" />
+      <input type="submit" value="Add cookie" />
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th colspan="1">Key</th>
+          <th colspan="1">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(let key of Object.keys(cookie)) {%>
+
+        <tr>
+          <td><%= key %></td>
+          <td><%= cookie[key] %></td>
+        </tr>
+        <%} %>
+      </tbody>
+    </table>
+  </body>
+</html>
