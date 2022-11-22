@@ -46,6 +46,7 @@ app.post("/result", (req, res) => {
 });
 
 app.use("/output", (req, res) => {
+  sess = req.session;
   res.send(`hello ${sess?.name} you are now ${sess?.age}`);
 });
 
