@@ -17,7 +17,7 @@ if (process.env.NODE_ENV !== "test") app.use(logger(":method :url"));
 // req.cookies and req.signedCookies
 // when the secret is passed, used
 // for signing the cookies.
-app.use(cookieParser("my secret here"));
+app.use(cookieParser());
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "view"));
