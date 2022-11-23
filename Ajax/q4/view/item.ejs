@@ -45,20 +45,13 @@
 <body>
   <div class="container">
     <% for(let item of products) {%>
-    <div class="box" id=<%= item?.id %>>
-      <form id="item">
-        <image id="image" src="<%= item?.img %>" alt="items" />
+    <div class="box">
+         <image id="image" src="<%= item?.img %>" alt="items" />
         <h3><%= item?.name %></h3>
         <p><%= item?.description %></p>
         <h5>Price: <%= item?.price %></h5>
-        <% if(item?.quantity){%>
-         <p>Quantity: <%=item?.quantity %></p>
-        <%
-        }else{%>
-          
-          <button class="button" type="submit" id="add" value= <%= item?.id %> >Add to cart</button>
-          <%} %>
-      </form>
+        <input type="hidden" id="hidden" value=<%= item?.id %> />        
+        <button class="button" type="submit" id="add" >Add to cart</button>
     </div>
 
     <%} %>

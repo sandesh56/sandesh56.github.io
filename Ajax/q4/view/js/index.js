@@ -1,11 +1,11 @@
 $(() => {
-  $("#form").submit(() => {
-    let id = $("#item").value();
+  $("#add").click(() => addItems());
+  var addItems = () => {
+    let id = $("#hidden").val();
     fetch("/content", {
       method: "POST",
-      body: JSON.stringify(id),
-    })
-      .then((res) => res.json())
-      .then((res) => console.log({ res }));
-  });
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: id }),
+    }).then(() => (window.location.href = "/cartItems"));
+  };
 });

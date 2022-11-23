@@ -8,6 +8,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "view"));
 const urlParser = bodyParser.urlencoded({ extended: false });
 app.use(urlParser);
+app.use(bodyParser.json());
 app.use(
   session({
     secret: "imp",
@@ -55,7 +56,7 @@ let products = [
     id: 5,
   },
 ];
-let cartItems = [];
+
 app.get("/", (req, res) => {
   res.render("item", {
     products: products,
@@ -64,6 +65,7 @@ app.get("/", (req, res) => {
 
 app.post("/content", (req, res) => {
   const productId = req.body.id;
+  console.log(productId);
   const addedProduct = products.filter(
     (item) => item?.id === parseInt(productId)
   );
@@ -91,7 +93,6 @@ app.post("/content", (req, res) => {
       session.cart.push({ ...addedProduct[0], quantity: 1 });
     }
   }
-  res.send(Json.stringify(items?.length));
   res.redirect("/cartItems");
 });
 
