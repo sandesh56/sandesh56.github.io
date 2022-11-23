@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-    </head>
     <style>
         #box{
             padding:1rem;
@@ -21,20 +18,10 @@
             height:50%;
             width:50%;
         }
-
-        #aside{
-            background-color: bisque;
-            height:50%;
-            width:auto;
-        }
         
     </style>
-    <header>
-        <%- include("header"); %>
-    </header>
-    <body>
         <div class="container">
-           <% for(let item of products){%> 
+           <% for(let item of items){%> 
             <div id="box">
                 <image id="image" src="<%= item?.image %>" alt="items" />
                 <h3><%= item?.name %></h3>
@@ -43,11 +30,4 @@
              </div>
            <%} %>
         </div>
-        <div>
-            <%- include("cart"); %>
-        </div>
-    </body>
-    <footer>
-        <%- include("footer"); %>
-    </footer>
 </html>

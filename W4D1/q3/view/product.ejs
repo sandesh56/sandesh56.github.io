@@ -2,6 +2,8 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="/js/index.js"></script>
     </head>
     <style>
         #box{
@@ -34,18 +36,17 @@
     </header>
     <body>
         <div class="container">
-           <% for(let item of products){%> 
             <div id="box">
-                <image id="image" src="<%= item?.image %>" alt="items" />
-                <h3><%= item?.name %></h3>
-                <p><%= item?.description %></p>
-                <h5>Price: <%= item?.price %></h5>
+                <image id="image" src="<%= product?.image %>" alt="items" />
+                <h3><%= product?.name %></h3>
+                <p><%= product?.description %></p>
+                <h5>Price: <%= product?.price %></h5>
+                <button type="submit" id="add">Add to Cart</button>
              </div>
-           <%} %>
         </div>
-        <div>
-            <%- include("cart"); %>
-        </div>
+        <aside>
+            <%- include("cart"); %> 
+        </aside>
     </body>
     <footer>
         <%- include("footer"); %>

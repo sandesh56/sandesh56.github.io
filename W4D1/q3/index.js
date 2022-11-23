@@ -5,15 +5,36 @@ const app = express();
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "view"));
 
+app.use("/js", express.static(path.join(__dirname, "view", "js")));
+
+const products = [
+  {
+    name: "Mobile",
+    description: "A new product",
+    price: 500,
+    id: 0,
+    image:
+      "https://images.unsplash.com/photo-1517404215738-15263e9f9178?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
+  },
+  {
+    name: "Laptops",
+    description: "Coding laptops ",
+    price: 2000,
+    id: 1,
+    image:
+      "https://images.unsplash.com/photo-1605496036006-fa36378ca4ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+  },
+];
+
 app.get("/", (req, res) => {
   res.render("item", {
-    name: "item",
-    price: "25",
-    imageurl:
-      "https://guesseu.scene7.com/is/image/GuessEU/AW6308VIS03-SAP?wid=700&amp;fmt=jpeg&amp;qlt=80&amp;op_sharpen=0&amp;op_usm=1.0,1.0,5,0&amp;iccEmbed=0",
-    description: "This item is very good",
-    id: 1,
+    products: products,
+    items: [],
   });
 });
 
+app.get("/:id", (req, res) => {
+  const id = req.params.id;
+  res.render("product", { product: products[id] });
+});
 app.listen(3000);
